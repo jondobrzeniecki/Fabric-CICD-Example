@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Fabric AI Functions"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e6d081b6-f50a-8ee4-4702-4b9bd820d300"
+  }
+}
