@@ -1,0 +1,242 @@
+table find_food_reviews_categorized
+	lineageTag: 39d40bd5-b8b9-4065-b494-3236f6b443ee
+
+	measure 'Total Predictions' = ```
+			
+			    COUNTROWS(find_food_reviews_categorized)
+			
+			  
+			```
+		formatString: 0
+		lineageTag: 7437586e-c3d2-4e4e-a379-c182c1d5b7b7
+
+	measure 'Correct Predictions Category Fabric AI' = ```
+			
+			    COUNTROWS(
+			      FILTER(
+			        find_food_reviews_categorized,
+			        find_food_reviews_categorized[human_category] = find_food_reviews_categorized[fabric_ai_category]
+			      )
+			    )
+			
+			  
+			```
+		formatString: 0
+		lineageTag: a0b5f77a-62f3-4c7e-ab72-c84e82d4b51e
+
+	measure 'Accuracy Category Fabric AI' = ```
+			DIVIDE(
+			      [Correct Predictions Category Fabric AI],
+			      [Total Predictions],
+			      0
+			    )
+			
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: a54c1d47-4a4b-4879-a96d-ef1d3c1ec485
+
+	measure 'Correct Predictions Category AOAI' = ```
+			
+			    COUNTROWS(
+			      FILTER(
+			        find_food_reviews_categorized,
+			        find_food_reviews_categorized[human_category] = find_food_reviews_categorized[aoai_classify]
+			      )
+			    )
+			
+			  
+			```
+		formatString: 0
+		lineageTag: eb7d9286-f84c-479b-b7d0-e0854f598864
+
+	measure 'Accuracy Category AOAI' = ```
+			DIVIDE(
+			      [Correct Predictions Category AOAI],
+			      [Total Predictions],
+			      0
+			    )
+			
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: f1533a01-808c-47dd-8334-00e6517a229f
+
+	measure 'Correct Predictions Sentiment AOAI' = ```
+			
+			    COUNTROWS(
+			      FILTER(
+			        find_food_reviews_categorized,
+			        find_food_reviews_categorized[human_sentiment] = find_food_reviews_categorized[aoai_sentiment]
+			      )
+			    )
+			
+			  
+			```
+		formatString: 0
+		lineageTag: b2dbe2a8-5ff3-4be0-b9cb-efe46c7f35e5
+
+	measure 'Accuracy Sentiment AOAI' = ```
+			DIVIDE(
+			      [Correct Predictions Sentiment AOAI],
+			      [Total Predictions],
+			      0
+			    )
+			
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 988e68c7-cec3-4f80-96cd-8a95e1bb32e3
+
+	measure 'Correct Predictions Sentiment Fabric AI' = ```
+			
+			    COUNTROWS(
+			      FILTER(
+			        find_food_reviews_categorized,
+			        find_food_reviews_categorized[human_sentiment] = find_food_reviews_categorized[fabric_ai_sentiment]
+			      )
+			    )
+			
+			  
+			```
+		formatString: 0
+		lineageTag: 211ef8c7-52f7-477a-bca2-7ca9e71bd962
+
+	measure 'Accuracy Sentiment Fabric AI' = ```
+			DIVIDE(
+			      [Correct Predictions Sentiment Fabric AI],
+			      [Total Predictions],
+			      0
+			    )
+			
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: bcc1edc2-d3a2-474e-9a4d-8da8a20bd39e
+
+	column Rating
+		dataType: int64
+		formatString: 0
+		lineageTag: c72d059a-8299-4e02-9572-f59bbb4cc4a0
+		summarizeBy: none
+		sourceColumn: Rating
+
+		annotation SummarizationSetBy = User
+
+	column Time
+		dataType: int64
+		formatString: 0
+		lineageTag: f3530306-2740-4dbc-a7be-16cd505ee0f0
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = User
+
+	column ProductId
+		dataType: string
+		lineageTag: 80284962-0a30-4901-87d6-2783004fa591
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserId
+		dataType: string
+		lineageTag: 9e72c24e-ef93-424f-94dc-6fa55e07cc98
+		summarizeBy: none
+		sourceColumn: UserId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Score
+		dataType: int64
+		formatString: 0
+		lineageTag: 3861e649-3ce0-46a7-b6a4-bdcd42121a4b
+		summarizeBy: none
+		sourceColumn: Score
+
+		annotation SummarizationSetBy = User
+
+	column human_sentiment
+		dataType: string
+		lineageTag: 2e8a9ef9-52d3-45e3-b1f6-4ac1865085af
+		summarizeBy: none
+		sourceColumn: human_sentiment
+
+		annotation SummarizationSetBy = Automatic
+
+	column human_category
+		dataType: string
+		lineageTag: 78cab365-7a39-4df7-bd8d-20f7127006ac
+		summarizeBy: none
+		sourceColumn: human_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Summary
+		dataType: string
+		lineageTag: 2578929a-9d37-4a48-93cd-2eee1848849a
+		summarizeBy: none
+		sourceColumn: Summary
+
+		annotation SummarizationSetBy = Automatic
+
+	column Text
+		dataType: string
+		lineageTag: 2e0ebeb1-bd61-46ae-8080-1a6513c55b18
+		summarizeBy: none
+		sourceColumn: Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullReview
+		dataType: string
+		lineageTag: b2b0d3bf-1e0f-4566-9183-2870f63ecc06
+		summarizeBy: none
+		sourceColumn: FullReview
+
+		annotation SummarizationSetBy = Automatic
+
+	column fabric_ai_sentiment
+		dataType: string
+		lineageTag: 7b52f3ef-a31d-4c78-bfc6-23fa539c214f
+		summarizeBy: none
+		sourceColumn: fabric_ai_sentiment
+
+		annotation SummarizationSetBy = Automatic
+
+	column fabric_ai_category
+		dataType: string
+		lineageTag: 8bcd206d-294d-460f-b620-79e7b3d128e0
+		summarizeBy: none
+		sourceColumn: fabric_ai_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column aoai_sentiment
+		dataType: string
+		lineageTag: ced97177-1567-46b8-990e-8b9d81590eb6
+		summarizeBy: none
+		sourceColumn: aoai_sentiment
+
+		annotation SummarizationSetBy = Automatic
+
+	column aoai_classify
+		dataType: string
+		lineageTag: c02c821d-74cd-45cb-b524-bc2b936efd89
+		summarizeBy: none
+		sourceColumn: aoai_classify
+
+		annotation SummarizationSetBy = Automatic
+
+	partition find_food_reviews_categorized = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("tap5rkzm52dermi7zhvohfc6fe-ifcxu4fiq4vutieoek7k2fkub4.datawarehouse.fabric.microsoft.com", "CustomerReviews"),
+				    dbo_find_food_reviews_categorized = Source{[Schema="dbo",Item="find_food_reviews_categorized"]}[Data]
+				in
+				    dbo_find_food_reviews_categorized
+
+	annotation PBI_ResultType = Table
+
