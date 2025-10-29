@@ -1,0 +1,11 @@
+expression 'DirectLake - machine_failure_predictions' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/7a786b3c-4d2f-4f34-9a59-ddb2a778408f/938c9c25-435a-4496-93cd-bf2d41a9db1b", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 12f1e068-5985-4bb9-bac6-ef259d68264a
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[predictive_maintenance_data]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[predictive_maintenance_test_data]"}},"objectType":"Table"}]
+

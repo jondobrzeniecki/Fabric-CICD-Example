@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.68\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU11\",\"type\":2,\"version\":{\"visual\":\"2.4.0\",\"report\":\"3.0.0\",\"page\":\"2.3.0\"}}},\"activeSectionIndex\":0,\"modelExtensions\":[{\"name\":\"extension\",\"entities\":[{\"name\":\"predictive_maintenance_test_with_predictions\",\"extends\":\"predictive_maintenance_test_with_predictions\",\"measures\":[{\"name\":\"Failure %\",\"dataType\":3,\"expression\":\"\\n    VAR _Numerator =\\n      // Count rows where predictions = 1 within the current filter context\\n      CALCULATE(\\n        COUNTROWS('predictive_maintenance_test_with_predictions'),\\n        'predictive_maintenance_test_with_predictions'[predictions] = 1\\n      )\\n    VAR _Denominator =\\n      // Total rows in the current filter context\\n      COUNTROWS('predictive_maintenance_test_with_predictions')\\n    RETURN\\n      DIVIDE(_Numerator, _Denominator) // Safe division, returns BLANK when denominator is 0\",\"errorMessage\":null,\"hidden\":false,\"formulaOverride\":null,\"formatInformation\":{\"formatString\":\"0 %;-0 %;0 %\",\"format\":\"Percentage\",\"accuracy\":0,\"thousandSeparator\":false,\"currencyFormat\":null,\"dateTimeCustomFormat\":null}}]}]}],\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU11",
+            "path": "BaseThemes/CY25SU11.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "16d7a7c4eb81ae8a90e8",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"299a0b298710e24d59f7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":847.4200426439232,\"y\":0,\"z\":1,\"width\":432.57995735607676,\"height\":720.5117270788912,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"predictive_maintenance_test_with_predictions.Type\",\"active\":true}],\"Y\":[{\"queryRef\":\"predictive_maintenance_test_with_predictions.Failure %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"predictive_maintenance_test_with_predictions\",\"Type\":0},{\"Name\":\"p1\",\"Entity\":\"predictive_maintenance_test_with_predictions\",\"Schema\":\"extension\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Type\"},\"Name\":\"predictive_maintenance_test_with_predictions.Type\",\"NativeReferenceName\":\"Type\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Failure %\"},\"Name\":\"predictive_maintenance_test_with_predictions.Failure %\",\"NativeReferenceName\":\"Failure %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p1\"}},\"Property\":\"Failure %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'0=Low, 1=Medium, 2=High'\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Failures by Product Quality'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 720.51,
+          "width": 432.58,
+          "x": 847.42,
+          "y": 0.00,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"907ef56365111052132a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":847.4200426439232,\"height\":720.5117270788912,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(predictive_maintenance_test_with_predictions.Torque_Nm)\"}],\"X\":[{\"queryRef\":\"Sum(predictive_maintenance_test_with_predictions.Tool_wear_min)\",\"active\":true}],\"Series\":[{\"queryRef\":\"predictive_maintenance_test_with_predictions.predictions\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"predictive_maintenance_test_with_predictions\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Torque_Nm\"},\"Name\":\"Sum(predictive_maintenance_test_with_predictions.Torque_Nm)\",\"NativeReferenceName\":\"Torque_Nm\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Tool_wear_min\"},\"Name\":\"Sum(predictive_maintenance_test_with_predictions.Tool_wear_min)\",\"NativeReferenceName\":\"Tool_wear_min\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"predictions\"},\"Name\":\"predictive_maintenance_test_with_predictions.predictions\",\"NativeReferenceName\":\"predictions\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"colorByCategory\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"showGradientLegend\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}},\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading2'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Predictions: Tool_wear_min and Torque_Nm'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 720.51,
+          "width": 847.42,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

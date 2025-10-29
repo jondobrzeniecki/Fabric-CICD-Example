@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "machine_failure_predictions"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "41a9db1b-bf2d-93cd-4496-435a938c9c25"
+  }
+}

@@ -1,0 +1,85 @@
+table predictive_maintenance_test_with_predictions
+	lineageTag: 5db43add-965f-42b2-a355-5203564f92bf
+	sourceLineageTag: [dbo].[predictive_maintenance_test_with_predictions]
+
+	column predictions
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c4ad8d0-602d-4da6-969d-a895891dcda3
+		sourceLineageTag: predictions
+		summarizeBy: sum
+		sourceColumn: predictions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: int64
+		formatString: 0
+		lineageTag: 97be4c0d-e7ef-4e56-a579-6e18e0d3b8ea
+		sourceLineageTag: Type
+		summarizeBy: sum
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Air_temperature_K
+		dataType: double
+		lineageTag: d64d6c64-7e2e-4a47-a8ad-adcdc325f756
+		sourceLineageTag: Air_temperature_K
+		summarizeBy: sum
+		sourceColumn: Air_temperature_K
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Process_temperature_K
+		dataType: double
+		lineageTag: ab1f6b9d-290e-40ea-a3cf-628565c8873b
+		sourceLineageTag: Process_temperature_K
+		summarizeBy: sum
+		sourceColumn: Process_temperature_K
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Rotational_speed_rpm
+		dataType: double
+		lineageTag: 67f33da5-837a-416f-a54f-bacfaa4544e8
+		sourceLineageTag: Rotational_speed_rpm
+		summarizeBy: sum
+		sourceColumn: Rotational_speed_rpm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Torque_Nm
+		dataType: double
+		lineageTag: ef50819f-c8b2-4012-a8de-65e056a96da6
+		sourceLineageTag: Torque_Nm
+		summarizeBy: sum
+		sourceColumn: Torque_Nm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tool_wear_min
+		dataType: double
+		lineageTag: 6b08a370-9a36-4517-9d60-abd63b23cb83
+		sourceLineageTag: Tool_wear_min
+		summarizeBy: sum
+		sourceColumn: Tool_wear_min
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition predictive_maintenance_test_with_predictions = entity
+		mode: directLake
+		source
+			entityName: predictive_maintenance_test_with_predictions
+			expressionSource: 'DirectLake - machine_failure_predictions'
+

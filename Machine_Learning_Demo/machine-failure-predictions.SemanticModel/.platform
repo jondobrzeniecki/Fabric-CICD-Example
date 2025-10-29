@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "machine-failure-predictions"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ae8f0f75-ed31-8ec9-497c-94595dc3cf5c"
+  }
+}
